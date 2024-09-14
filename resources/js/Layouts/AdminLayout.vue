@@ -8,7 +8,9 @@
       ]"
     >
       <div class="p-4 flex items-center justify-between">
-        <h1 class="text-xl font-bold text-gray-800">Admin Dashboard</h1>
+        <Link href="/">     
+          <h1 class="text-xl font-bold text-gray-800">Student Helps</h1>
+        </Link>
         <button @click="toggleSidebar" class="lg:hidden text-gray-500 hover:text-gray-600">
           <!-- Close Icon -->
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +85,7 @@
     <!-- Main Content -->
     <div class="flex-1 flex flex-col lg:ml-64">
       <!-- Top Bar -->
-      <header class="fixed top-0 left-0 right-0 lg:left-64 bg-white shadow-md z-20 flex justify-between items-center p-4">
+    <header class="fixed top-0 left-0 right-0 lg:left-64 bg-white shadow-md z-20 flex justify-between items-center p-4">
         <button @click="toggleSidebar" class="lg:hidden text-gray-500 hover:text-gray-600">
           <!-- Menu Icon -->
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +103,7 @@
           <!-- User Dropdown -->
           <div v-if="showUserMenu" class="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg">
             <Link href="/profile" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</Link>
-            <button @click="logout" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</button>
+            <Link :href="route('logout')" method="post" as="button" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</Link>
           </div>
         </div>
       </header>
