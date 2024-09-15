@@ -1,12 +1,16 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RolePermission\PermissionController;
 use App\Http\Controllers\RolePermission\RoleController;
 use App\Http\Controllers\RolePermission\RolePermissionController;
+use App\Http\Controllers\StudentProfileController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -19,7 +23,34 @@ use Inertia\Inertia;
 //     ]);
 // });
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
 
+
+Route::get('/migrate-fresh-seed', function () {
+    if (app()->environment('local')) {
+        try {
+            Artisan::call('migrate:fresh --seed');
+            return response()->json(['message' => 'Migration and seeding completed successfully.']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to complete migration and seeding.'], 500);
+        }
+    } else {
+        return response()->json(['message' => 'This operation is not allowed in the production environment.'], 403);
+    }
+});
+
+Route::get('/migrate', function () {
+    if (app()->environment('local')) {
+        try {
+            Artisan::call('migrate');
+            return response()->json(['message' => 'Migration completed successfully.']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to complete migration.'], 500);
+        }
+    } else {
+        return response()->json(['message' => 'This operation is not allowed in the production environment.'], 403);
+    }
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -62,8 +93,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
         Route::put('/{user}', [UserController::class, 'update'])->name('update');
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
-    });    
+    });
 
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/student-profile', [StudentProfileController::class, 'index'])->name('student.profile.index');
+    Route::post('/student-profile', [StudentProfileController::class, 'update'])->name('student.profile.update');
+
+    Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
+    Route::get('/subscriptions/create', [SubscriptionController::class, 'create'])->name('subscriptions.create');
+    Route::post('/subscriptions', [SubscriptionController::class, 'store'])->name('subscriptions.store');
 });
 
 require __DIR__.'/auth.php';

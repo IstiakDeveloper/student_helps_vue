@@ -1,20 +1,40 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-        <div>
-            <Link href="/">
-                <ApplicationLogo class="w-20 h-20 fill-current text-gray-500" />
-            </Link>
-        </div>
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 via-gray-100 to-blue-50">
+        <!-- Container -->
+        <div class="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
+            <!-- Logo Section -->
+            <div class="text-center mb-6">
+                <Link href="/">
+                    <img src="/images/logo.jpg" alt="Logo" class="w-16 h-16 mx-auto" />
+                </Link>
 
-        <div
-            class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
-        >
-            <slot />
+            </div>
+
+            <!-- Slot for Content -->
+            <div class="space-y-6">
+                <slot />
+            </div>
+
+            <!-- Footer Links -->
+            <div class="text-center mt-8">
+                <Link
+                    href="/terms"
+                    class="text-sm text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                    Terms & Conditions
+                </Link>
+                <span class="text-sm text-gray-400 mx-2">|</span>
+                <Link
+                    href="/privacy"
+                    class="text-sm text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                    Privacy Policy
+                </Link>
+            </div>
         </div>
     </div>
 </template>
