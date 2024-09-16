@@ -7,6 +7,7 @@ use App\Http\Controllers\RolePermission\PermissionController;
 use App\Http\Controllers\RolePermission\RoleController;
 use App\Http\Controllers\RolePermission\RolePermissionController;
 use App\Http\Controllers\StudentProfileController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Foundation\Application;
@@ -93,6 +94,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
         Route::put('/{user}', [UserController::class, 'update'])->name('update');
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
+        Route::get('/{user}', [UserController::class, 'show'])->name('show');
+
     });
 
 });
@@ -104,6 +107,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
     Route::get('/subscriptions/create', [SubscriptionController::class, 'create'])->name('subscriptions.create');
     Route::post('/subscriptions', [SubscriptionController::class, 'store'])->name('subscriptions.store');
+
+    Route::put('/subscriptions/{id}/update-status', [SubscriptionController::class, 'updateStatus'])->name('subscriptions.updateStatus');
+
+    Route::get('/subscriber', [SubscriberController::class, 'index'])->name('subscriber.index');
+
+
 });
 
 require __DIR__.'/auth.php';

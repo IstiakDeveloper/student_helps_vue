@@ -95,4 +95,15 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'User deleted successfully.');
     }
 
+
+    public function show(User $user)
+    {
+        // Assuming you have a Subscription model and relation defined
+        $subscriptions = $user->subscriptions;
+
+        return Inertia::render('Users/View', [
+            'user' => $user,
+            'subscriptions' => $subscriptions,
+        ]);
+    }
 }

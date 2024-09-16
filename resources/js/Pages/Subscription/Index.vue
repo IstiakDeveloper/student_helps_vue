@@ -17,26 +17,25 @@
           <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
             <thead>
               <tr>
-                <th class="py-2 px-4 border-b">SL</th>
-                <th class="py-2 px-4 border-b">Months</th>
-                <th class="py-2 px-4 border-b">Payment Method</th>
-                <th class="py-2 px-4 border-b">Transaction ID</th>
-                <th class="py-2 px-4 border-b">Status</th>
-                <th class="py-2 px-4 border-b">Expires At</th>
-                <th class="py-2 px-4 border-b">Actions</th>
+                <th class="py-2 px-4 border">SL</th>
+                <th class="py-2 px-4 border">Months</th>
+                <th class="py-2 px-4 border">Payment Method</th>
+                <th class="py-2 px-4 border">Transcetion ID</th>
+                <th class="py-2 px-4 border">Amount</th>
+                <th class="py-2 px-4 border">Status</th>
+                <th class="py-2 px-4 border">Expires At</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(subscription, index) in subscriptions" :key="subscription.id" :class="getRowClass(subscription)">
-                <td class="py-2 px-4 border-b">{{ index + 1 }}</td> <!-- Serial number -->
-                <td class="py-2 px-4 border-b">{{ subscription.months }}</td>
-                <td class="py-2 px-4 border-b">{{ subscription.payment_method }}</td>
-                <td class="py-2 px-4 border-b">{{ subscription.transaction_id }}</td>
-                <td class="py-2 px-4 border-b">{{ subscription.status }}</td>
-                <td class="py-2 px-4 border-b">{{ subscription.expires_at }}</td>
-                <td class="py-2 px-4 border-b">
-                  <!-- Add actions like Edit or Delete if needed -->
-                </td>
+                <td class="py-2 px-4 border">{{ index + 1 }}</td> <!-- Serial number -->
+                <td class="py-2 px-4 border">{{ subscription.months }}</td>
+                <td class="py-2 px-4 border">{{ subscription.payment_method }}</td>
+                <td class="py-2 px-4 border">{{ subscription.transaction_id }}</td>
+                <td class="py-2 px-4 border">{{ subscription.amount }}</td>
+                <td class="py-2 px-4 border">{{ subscription.status }}</td>
+                <td class="py-2 px-4 border">{{ subscription.expires_at }}</td>
+
               </tr>
             </tbody>
           </table>

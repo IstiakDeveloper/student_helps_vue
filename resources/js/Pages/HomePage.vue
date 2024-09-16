@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Students Help | Home Page</title>
+        <title>Home Page</title>
     </Head>
   <!-- Main Wrapper -->
   <div>
@@ -71,30 +71,30 @@
             <div class="swiper-slide bg-cover bg-center h-96" style="background-image: url('/images/0s.jpg');">
                 <div class="container mx-auto px-4 py-32 text-white text-center">
                 <h1 class="text-4xl font-extrabold">Welcome to Students Help</h1>
-                <p class="mt-4 text-lg">Helping students with Accommodation, Jobs, and Settlement in the UK</p>
-                <button class="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full shadow-lg">
+                <p class="m-4 text-lg">Helping students with Accommodation, Jobs, and Settlement in the UK</p>
+                <Link href="/register" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg">
                     Get Started
-                </button>
+                </Link>
                 </div>
             </div>
             <!-- Slide 2 -->
             <div class="swiper-slide bg-cover bg-center h-96" style="background-image: url('/images/1s.jpg');">
                 <div class="container mx-auto px-4 py-32 text-white text-center">
                 <h1 class="text-4xl font-extrabold">Find the Best Accommodation</h1>
-                <p class="mt-4 text-lg">We provide excellent housing options for students.</p>
-                <button class="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full shadow-lg">
+                <p class="m-4 text-lg">We provide excellent housing options for students.</p>
+                <Link href="/register" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg">
                     Learn More
-                </button>
+                </Link>
                 </div>
             </div>
             <!-- Slide 3 -->
             <div class="swiper-slide bg-cover bg-center h-96" style="background-image: url('/images/2s.jpg');">
                 <div class="container mx-auto px-4 py-32 text-white text-center">
                 <h1 class="text-4xl font-extrabold">Part-Time Jobs for Students</h1>
-                <p class="mt-4 text-lg">Discover job opportunities to support your studies.</p>
-                <button class="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-8 rounded-full shadow-lg">
-                    Find Jobs
-                </button>
+                <p class="m-4 text-lg">Discover job opportunities to support your studies.</p>
+                <Link href="/register" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg">
+                    Find Job
+                </Link>
                 </div>
             </div>
             </div>
@@ -110,10 +110,10 @@
     <section class="bg-blue-500 text-white py-8">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl font-bold">Start Your Journey with Us!</h2>
-        <p class="mt-4 text-lg">Discover accommodation, jobs, and settlement solutions tailored for students.</p>
-        <button class="mt-6 bg-white text-blue-500 font-semibold py-2 px-6 rounded hover:bg-gray-100">
+        <p class="m-4 text-lg">Discover accommodation, jobs, and settlement solutions tailored for students.</p>
+        <Link href="/register" class=" bg-white text-blue-500 font-semibold py-2 px-6 rounded hover:bg-gray-100">
           Learn More
-        </button>
+        </Link>
       </div>
     </section>
 
@@ -123,30 +123,30 @@
       <div class="text-center p-6 bg-white rounded-lg shadow-lg">
         <img src="/images/accm.jpg" alt="Accommodation" class="w-full h-48 object-cover rounded-md">
         <h3 class="text-2xl font-semibold mt-4">Accommodation</h3>
-        <p class="mt-4">We have Student Rooms and Entire properties in Newcastle, Gateshead & Sunderland.</p>
-        <button class="mt-6 bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600">
+        <p class="m-4">We have Student Rooms and Entire properties in Newcastle, Gateshead & Sunderland.</p>
+        <Link href="/register" class="mt-6 bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600">
           Learn More
-        </button>
+        </Link>
       </div>
 
       <!-- Grid Item 2: Student Jobs -->
       <div class="text-center p-6 bg-white rounded-lg shadow-lg">
         <img src="/images/jbs.jpg" alt="Student Jobs" class="w-full h-48 object-cover rounded-md">
         <h3 class="text-2xl font-semibold mt-4">Student Jobs</h3>
-        <p class="mt-4">We have many part-time jobs in Tyne & Wear for students.</p>
-        <button class="mt-6 bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600">
+        <p class="m-4">We have many part-time jobs in Tyne & Wear for students.</p>
+        <Link href="/register" class="mt-6 bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600">
           Find Jobs
-        </button>
+        </Link>
       </div>
 
       <!-- Grid Item 3: Settlement -->
       <div class="text-center p-6 bg-white rounded-lg shadow-lg">
         <img src="/images/st.jpg" alt="Settlement" class="w-full h-48 object-cover rounded-md">
         <h3 class="text-2xl font-semibold mt-4">Settlement</h3>
-        <p class="mt-4">Find Sponsorship Visa and Talented Routes through our legal partners.</p>
-        <button class="mt-6 bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600">
+        <p class="m-4">Find Sponsorship Visa and Talented Routes through our legal partners.</p>
+        <Link href="/register" class="mt-6 bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600">
           Learn More
-        </button>
+        </Link>
       </div>
     </section>
 
@@ -175,14 +175,14 @@
                     <div class="bg-white shadow-lg rounded-full p-4 sm:p-6 inline-block">
                         <img src="https://img.icons8.com/ios-filled/50/000000/passport.png" alt="Settlement" class="w-10 h-10 sm:w-12 sm:h-12 mx-auto">
                     </div>
-                    <h3 class="mt-2 sm:mt-4 text-lg sm:text-xl font-semibold text-gray-700">Settlement</h3>
+                    <h3 class="mt-2 mb-10 sm:mt-4 text-lg sm:text-xl font-semibold text-gray-700">Settlement</h3>
                 </div>
             </div>
 
             <!-- Subscribe Button -->
-            <button class="mt-10 bg-green-500 hover:bg-green-600 text-white py-3 px-8 font-bold rounded-full transition-transform transform hover:scale-105 shadow-lg">
+            <Link href="/subscriptions" class="bg-green-500 hover:bg-green-600 text-white py-3 px-8 font-bold rounded-full transition-transform transform hover:scale-105 shadow-lg">
                 Subscribe Now
-            </button>
+            </Link>
         </div>
     </section>
 

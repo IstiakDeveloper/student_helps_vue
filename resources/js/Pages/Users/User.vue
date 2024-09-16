@@ -26,6 +26,7 @@
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <button @click="openEditModal(user)" class="text-blue-600 hover:text-blue-900">Edit</button>
                     <button @click="confirmDelete(user.id)" class="text-red-600 hover:text-red-900 ml-4">Delete</button>
+                    <Link :href="route('users.show', user.id)" class="text-green-600 hover:text-green-900 ml-4">Show</Link>
                 </td>
                 </tr>
             </tbody>
@@ -113,7 +114,7 @@ import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import ConfirmDialog from '@/Components/ConfirmationDialog.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 
 const props = defineProps({
   users: Array,

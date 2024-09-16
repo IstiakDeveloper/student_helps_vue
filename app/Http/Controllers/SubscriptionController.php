@@ -34,6 +34,8 @@ class SubscriptionController extends Controller
             'months' => 'required|integer|min:1',
             'payment_method' => 'required|in:Cash,Bank',
             'transaction_id' => 'required_if:payment_method,Bank',
+            'amount' => 'required|numeric|min:1',
+
         ]);
 
         // Calculate the expiration date
@@ -47,9 +49,23 @@ class SubscriptionController extends Controller
             'transaction_id' => $request->transaction_id,
             'status' => 'pending',
             'expires_at' => $expiresAt,
+            'amount' => $request->amount,  // Store the amount
         ]);
 
         // Redirect with success message
         return redirect()->route('subscriptions.index')->with('success', 'Subscription created successfully, awaiting approval.');
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => ['required', 'in:pending,approved,rejected'],
+        ]);
+
+        $subscription = Subscription::findOrFail($id);
+        $subscription->status = $request->status;
+        $subscription->save();
+
+        return response()->json(['message' => 'Status updated successfully']);
     }
 }
